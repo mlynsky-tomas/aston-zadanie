@@ -1,19 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SelectWrapper
+      label="Variant poistenia" 
+      :options="variantValues"
+      id="variant"
+      :required="true"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SelectWrapper from './components/SelectWrapper.vue'
 
 export default {
   name: 'App',
+  data: () => ({
+    variantValues: [
+      {name: "Krátkodobé poistenie", value: "1"},
+      {name: "Celoročné poistenie", value: "2"},
+    ]
+  }),
   components: {
-    HelloWorld
+    SelectWrapper  
   }
 }
+
 </script>
 
 <style>
