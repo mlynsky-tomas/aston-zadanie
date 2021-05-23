@@ -6,11 +6,18 @@
       id="variant"
       :required="true"
     />
+    <DateWrapper
+      label="Začiatok poistenia"
+    />
+    <DateWrapper
+      label="Koniec poistenia"
+    />
   </div>
 </template>
 
 <script>
 import SelectWrapper from './components/SelectWrapper.vue'
+import DateWrapper from './components/DateWrapper.vue'
 
 export default {
   name: 'App',
@@ -21,19 +28,13 @@ export default {
     ]
   }),
   components: {
-    SelectWrapper  
+    SelectWrapper,
+    DateWrapper  
   }
 }
 
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
