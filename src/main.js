@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueMaterial from 'vue-material'
+import store from './store.js'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
@@ -21,5 +22,6 @@ new Vue({
   render: h => h(App),
   el: '#app',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store: store
 }).$mount('#app')

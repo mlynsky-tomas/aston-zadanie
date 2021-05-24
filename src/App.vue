@@ -24,6 +24,12 @@
       id="pripoistenia"
       :multiple="true"
     />
+    <SelectWrapper
+      label="Počet osôb" 
+      :options="osobyValues"
+      id="osoby"
+      :required="true"
+    />
   </div>
 </template>
 
@@ -46,6 +52,11 @@ export default {
     pripoisteniaValues: [
       {name: "Storno cesty", value: 1},
       {name: "Športové aktivity", value: 2}
+    ],
+    osobyValues: [
+      {name: "1 osoba", value: 1},
+      {name: "2 osoby", value: 2},
+      {name: "3 osoby", value: 3}
     ]
   }),
   components: {
