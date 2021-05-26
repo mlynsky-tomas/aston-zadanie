@@ -1,30 +1,23 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate">
+    <md-datepicker v-model="getValue[id]" :md-disabled-dates="disabledDates">
       <label>{{ label }}</label>
     </md-datepicker>
   </div>
 </template>
 
 <script>
-import { getUIDate, convertDate } from "../utils.js"
+import { mapGetters } from "vuex"
 
 export default {
     name: 'DateWrapper',
     props: {
         label: String,
-        id: String
+        id: String,
+        disabledDates: Function
     },
-    data: () => ({
-        selectedDate: getUIDate(new Date())
-    }),
-    watch: {
-        selectedDate: function () {
-            let name, value;
-            name = this.id;
-            value = convertDate(this.selectedDate);
-            this.$store.commit("updateForm", {name, value})
-        }
+    computed: {
+        ...mapGetters(["getValue"])
     }
 }
 </script>

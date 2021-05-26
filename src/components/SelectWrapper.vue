@@ -3,7 +3,7 @@
         <div class="md-layout-item">
         <md-field>
             <label :for="id">{{ label }}</label>
-            <md-select v-model="select" :name="id" :id="id" :required="required" :multiple="multiple">
+            <md-select v-model="getValue[id]" :name="id" :id="id" :required="required" :multiple="multiple">
                 <md-option v-for="option in options" :key="option.value" :value="option.value">
                     {{ option.name }}
                 </md-option>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
     name: 'SelectWrapper',
     props: {
@@ -24,16 +26,8 @@ export default {
         required: Boolean,
         multiple: Boolean
     },
-    data: () => ({
-      select: null
-    }),
-    watch: {
-        select: function () {
-            let name, value;
-            name = this.id;
-            value =this.select;
-            this.$store.commit("updateForm", {name, value})
-        }
+    computed: {
+        ...mapGetters(["getValue"])
     }
 }
 </script>
