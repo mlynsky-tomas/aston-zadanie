@@ -32,12 +32,14 @@
       id="pocetOsob"
       :required="true"
     />
+    <InsuranceCalculation />
   </div>
 </template>
 
 <script>
 import SelectWrapper from './components/SelectWrapper.vue'
 import DateWrapper from './components/DateWrapper.vue'
+import InsuranceCalculation from './components/InsuranceCalculation.vue'
 
 export default {
   name: 'App',
@@ -63,7 +65,8 @@ export default {
   }),
   components: {
     SelectWrapper,
-    DateWrapper  
+    DateWrapper,
+    InsuranceCalculation  
   }
 }
 
