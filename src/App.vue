@@ -8,9 +8,11 @@
     />
     <DateWrapper
       label="Začiatok poistenia"
+      id="zaciatokPoistenia"
     />
     <DateWrapper
       label="Koniec poistenia"
+      id="koniecPoistenia"
     />
     <SelectWrapper
       label="Balík" 
@@ -27,7 +29,7 @@
     <SelectWrapper
       label="Počet osôb" 
       :options="osobyValues"
-      id="osoby"
+      id="pocetOsob"
       :required="true"
     />
   </div>
@@ -41,17 +43,17 @@ export default {
   name: 'App',
   data: () => ({
     variantValues: [
-      {name: "Krátkodobé poistenie", value: 1},
-      {name: "Celoročné poistenie", value: 2},
+      {name: "Krátkodobé poistenie", value: "KCP"},
+      {name: "Celoročné poistenie", value: "CCP"},
     ],
     balikValues: [
-      {name: "Základný", value: 1},
-      {name: "Rozšírený", value: 2},
-      {name: "Extra", value: 3},
+      {name: "Základný", value: "ZAKLADNY"},
+      {name: "Rozšírený", value: "ROZSIRENY"},
+      {name: "Extra", value: "EXTRA"},
     ],
     pripoisteniaValues: [
-      {name: "Storno cesty", value: 1},
-      {name: "Športové aktivity", value: 2}
+      {name: "Storno cesty", value: "STORNO"},
+      {name: "Športové aktivity", value: "SPORT"}
     ],
     osobyValues: [
       {name: "1 osoba", value: 1},

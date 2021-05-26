@@ -5,7 +5,12 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        variant: null
+        variant: "",
+        zaciatokPoistenia: "",
+        koniecPoistenia: "",
+        balik: "",
+        pocetOsob: null,
+        pripoistenia: []
     },
     mutations: {
         updateForm(state, element) {

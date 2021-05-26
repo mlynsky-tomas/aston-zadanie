@@ -3,7 +3,7 @@
         <div class="md-layout-item">
         <md-field>
             <label :for="id">{{ label }}</label>
-            <md-select v-model="select" :name="id" :id="id" :required="required" :multiple="multiple" @md-selected="updateForm(id, select)">
+            <md-select v-model="select" :name="id" :id="id" :required="required" :multiple="multiple">
                 <md-option v-for="option in options" :key="option.value" :value="option.value">
                     {{ option.name }}
                 </md-option>
@@ -25,10 +25,13 @@ export default {
         multiple: Boolean
     },
     data: () => ({
-      select: ''
+      select: null
     }),
-    methods: {
-        updateForm: function (name, value) {
+    watch: {
+        select: function () {
+            let name, value;
+            name = this.id;
+            value =this.select;
             this.$store.commit("updateForm", {name, value})
         }
     }

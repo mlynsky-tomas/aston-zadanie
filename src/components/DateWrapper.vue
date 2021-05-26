@@ -7,13 +7,24 @@
 </template>
 
 <script>
-  export default {
+import { getUIDate, convertDate } from "../utils.js"
+
+export default {
     name: 'DateWrapper',
     props: {
-        label: String
+        label: String,
+        id: String
     },
     data: () => ({
-      selectedDate: null
-    })
-  }
+        selectedDate: getUIDate(new Date())
+    }),
+    watch: {
+        selectedDate: function () {
+            let name, value;
+            name = this.id;
+            value = convertDate(this.selectedDate);
+            this.$store.commit("updateForm", {name, value})
+        }
+    }
+}
 </script>
