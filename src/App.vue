@@ -98,6 +98,86 @@ export default {
 
 </script>
 
-<style>
-
+<style lang="scss">
+@import "./_variables.scss";
+body {
+  background: $background;
+  .md-card {
+    width: 400px;
+    display: inline-block;
+    position: relative;
+    left: calc(50% - 200px);
+    top: 20px;
+    .md-title {
+      color: $grad1
+    }
+    .md-field {
+        .md-input {
+            -webkit-text-fill-color: $fontDark !important;
+        }
+        &:before {
+            background-color: $fontDark !important;
+        }
+        label {
+            color: $fontDark !important;
+        }
+    }
+    .md-button {
+      &.md-primary {
+        color: $white !important;
+        background: $green !important;
+        margin: 0px;
+        margin-top: 10px;
+      }
+      &[disabled] {
+        color: $inputDisabledFont !important;
+        background: $inputDisabledBorder !important;
+      }
+    }
+    .insurance-calculation {
+      color: $green;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .insurance-verification {
+      color: $grad1;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  .md-list {
+    .md-selected {
+      .md-list-item-content {
+        color: $grad1 !important;
+      }
+    }
+    .md-list-item-container:not(.md-list-item-default):not(.md-list-item-expand):not([disabled]) {
+      &:hover {
+        background-color: $selectItemFocus !important;
+      }
+    }
+    .md-checkbox {
+      &.md-checked {
+        .md-checkbox-container {
+          background-color: $green !important;
+          border-color: $green !important;
+        }
+      }
+    }
+  }
+  .md-datepicker-dialog {
+    .md-datepicker-header {
+      background-color: $grad1 !important;
+    }
+    .md-datepicker-today {
+      color: $fontDark !important;
+    }
+    .md-datepicker-selected {
+      background-color: $grad1 !important;
+    }
+    .md-button {
+      color: $fontDark !important
+    }
+  }
+}
 </style>
