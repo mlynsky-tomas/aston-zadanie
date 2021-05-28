@@ -1,45 +1,53 @@
 <template>
   <div id="app">
-    <SelectWrapper
-      label="Variant poistenia" 
-      :options="variantValues"
-      id="variant"
-      :required="true"
-    />
-    <DateWrapper
-      label="Začiatok poistenia"
-      id="zaciatokPoistenia"
-      v-if="!getDisabled.zaciatokPoistenia"
-      :disabledDates = "disabledDatesZaciatok"
-    />
-    <DateWrapper
-      label="Koniec poistenia"
-      id="koniecPoistenia"
-      v-if="!getDisabled.koniecPoistenia"
-      :disabledDates="(date) => date < getZaciatokPoistenia"
-    />
-    <SelectWrapper
-      label="Balík" 
-      :options="balikValues"
-      id="balik"
-      :required="true"
-      v-if="!getDisabled.balik"
-    />
-    <SelectWrapper
-      label="Pripoistenia" 
-      :options="pripoisteniaValues"
-      id="pripoistenia"
-      :multiple="true"
-      v-if="!getDisabled.pripoistenia"
-    />
-    <SelectWrapper
-      label="Počet osôb" 
-      :options="osobyValues"
-      id="pocetOsob"
-      :required="true"
-      v-if="!getDisabled.pocetOsob"
-    />
-    <InsuranceCalculation />
+    <md-card>
+      <md-card-header>
+        <div class="md-title">Kalkulácia poistenia</div>
+      </md-card-header>
+      <md-card-content>
+        <SelectWrapper
+          label="Variant poistenia" 
+          :options="variantValues"
+          id="variant"
+          :required="true"
+        />
+        <DateWrapper
+          label="Začiatok poistenia"
+          id="zaciatokPoistenia"
+          v-if="!getDisabled.zaciatokPoistenia"
+          :disabledDates = "disabledDatesZaciatok"
+        />
+        <DateWrapper
+          label="Koniec poistenia"
+          id="koniecPoistenia"
+          v-if="!getDisabled.koniecPoistenia"
+          :disabledDates="(date) => date < getZaciatokPoistenia"
+        />
+        <SelectWrapper
+          label="Balík" 
+          :options="balikValues"
+          id="balik"
+          :required="true"
+          v-if="!getDisabled.balik"
+        />
+        <SelectWrapper
+          label="Pripoistenia" 
+          :options="pripoisteniaValues"
+          id="pripoistenia"
+          :multiple="true"
+          v-if="!getDisabled.pripoistenia"
+        />
+        <SelectWrapper
+          label="Počet osôb" 
+          :options="osobyValues"
+          id="pocetOsob"
+          :required="true"
+          v-if="!getDisabled.pocetOsob"
+        />
+        <InsuranceCalculation />
+        <InsuranceVerification />
+      </md-card-content>
+    </md-card>
   </div>
 </template>
 
@@ -47,6 +55,7 @@
 import SelectWrapper from './components/SelectWrapper.vue'
 import DateWrapper from './components/DateWrapper.vue'
 import InsuranceCalculation from './components/InsuranceCalculation.vue'
+import InsuranceVerification from './components/InsuranceVerification.vue'
 import { mapGetters } from "vuex";
 
 export default {
@@ -72,17 +81,18 @@ export default {
     ],
     disabledDatesZaciatok: function (date) {
       let yday = new Date();
-      yday.setDate(yday.getDate() - 1);
+      yday.setDate(yday.getDate());
       return date < yday
     }
   }),
   components: {
     SelectWrapper,
     DateWrapper,
-    InsuranceCalculation  
+    InsuranceCalculation,
+    InsuranceVerification  
   },
   computed: {
-      ...mapGetters(["getDisabled", "getZaciatokPoistenia"])
+      ...mapGetters(["getDisabled", "getZaciatokPoistenia", "getValue"])
   }
 }
 

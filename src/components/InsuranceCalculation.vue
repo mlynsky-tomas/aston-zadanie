@@ -1,6 +1,6 @@
 <template>
-    <div class="insurance-calculation">
-        {{ getTotal }}
+    <div class="insurance-calculation" v-if="getTotal > 0">
+        Suma poistenia {{ getTotal }}€
     </div>
 </template>
 

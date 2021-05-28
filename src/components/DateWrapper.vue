@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-datepicker v-model="getValue[id]" :md-disabled-dates="disabledDates">
+    <md-datepicker v-model="getValue[id]" :md-disabled-dates="disabledDates" :md-model-type="String" md-immediately>
       <label>{{ label }}</label>
     </md-datepicker>
   </div>
